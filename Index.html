@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kian's Dev Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background-color: #0f172a; color: white; }
+        .card { background: #1e293b; border: 1px solid #334155; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); border-color: #38bdf8; }
+        .price-tag { color: #38bdf8; font-weight: bold; }
+    </style>
+</head>
+<body class="font-sans">
+
+    <header class="py-20 text-center bg-slate-900">
+        <h1 class="text-5xl font-bold mb-4">Kian's Portfolio</h1>
+        <p class="text-xl text-slate-400 mb-8">Professional Roblox Builder & Animator</p>
+        <div class="flex justify-center gap-4">
+            <a href="https://sites.google.com/view/kians--portfolio/home" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full font-bold transition">View Google Portfolio</a>
+            <a href="#pricing" class="bg-slate-700 hover:bg-slate-600 px-6 py-3 rounded-full font-bold transition">See Pricing</a>
+        </div>
+    </header>
+
+    <section id="pricing" class="max-w-6xl mx-auto py-20 px-6">
+        <h2 class="text-3xl font-bold mb-12 text-center">Commission Prices</h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+            <div class="card p-6 rounded-xl">
+                <i class="fa-solid fa-box text-3xl mb-4 text-blue-400"></i>
+                <h3 class="text-xl font-bold mb-2">Assets & Props</h3>
+                <p class="text-slate-400 mb-4">High-quality props for any game style.</p>
+                <ul class="space-y-2">
+                    <li>Simple Props: <span class="price-tag">50 - 100 R$</span></li>
+                    <li>Detailed Props: <span class="price-tag">250 - 400 R$</span></li>
+                </ul>
+            </div>
+
+            <div class="card p-6 rounded-xl border-blue-500 shadow-lg shadow-blue-500/20">
+                <i class="fa-solid fa-house text-3xl mb-4 text-blue-400"></i>
+                <h3 class="text-xl font-bold mb-2">Buildings</h3>
+                <p class="text-slate-400 mb-4">Structural builds with or without interiors.</p>
+                <ul class="space-y-2">
+                    <li>Exterior Only: <span class="price-tag">500 - 800 R$</span></li>
+                    <li>With Interior: <span class="price-tag">800 - 1.2k R$</span></li>
+                </ul>
+            </div>
+
+            <div class="card p-6 rounded-xl">
+                <i class="fa-solid fa-map text-3xl mb-4 text-blue-400"></i>
+                <h3 class="text-xl font-bold mb-2">Maps</h3>
+                <ul class="space-y-2">
+                    <li>Small/Lobby: <span class="price-tag">1.5k - 2.5k R$</span></li>
+                    <li>Medium Map: <span class="price-tag">2k - 3.5k R$</span></li>
+                    <li>Large Map: <span class="price-tag">3.5k - 10k R$</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="card p-8 rounded-xl border-l-4 border-orange-500">
+                <h3 class="text-2xl font-bold mb-4">R6 Animations</h3>
+                <p class="text-slate-400 mb-6">Simple and clean movements for classic rigs.</p>
+                <div class="flex justify-between py-2 border-b border-slate-700"><span>Basic Loop</span><span class="price-tag">50 - 150 R$</span></div>
+                <div class="flex justify-between py-2 border-b border-slate-700"><span>Combat Move</span><span class="price-tag">150 - 300 R$</span></div>
+                <div class="flex justify-between py-2"><span>Emote/Dance</span><span class="price-tag">350 - 500 R$</span></div>
+            </div>
+
+            <div class="card p-8 rounded-xl border-l-4 border-blue-500">
+                <h3 class="text-2xl font-bold mb-4">R15 Animations</h3>
+                <p class="text-slate-400 mb-6">Fluid, multi-joint movements for modern rigs.</p>
+                <div class="flex justify-between py-2 border-b border-slate-700"><span>Basic Loop</span><span class="price-tag">150 - 250 R$</span></div>
+                <div class="flex justify-between py-2 border-b border-slate-700"><span>Combat Move</span><span class="price-tag">300 - 600 R$</span></div>
+                <div class="flex justify-between py-2"><span>Emote/Dance</span><span class="price-tag">700 - 1.2k R$</span></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 py-10 text-center">
+        <h2 class="text-2xl font-bold mb-4">Fair Payment Plan</h2>
+        <p class="text-slate-400 max-w-xl mx-auto px-6 mb-8">
+            25% Security Deposit Required | 30% Roblox Tax Covered by Client | 2 Free Revisions
+        </p>
+        <div class="flex justify-center gap-6">
+            <a href="#" class="text-3xl hover:text-blue-400"><i class="fa-brands fa-discord"></i></a>
+            <a href="#" class="text-3xl hover:text-blue-400"><i class="fa-solid fa-gamepad"></i></a>
+        </div>
+    </footer>
+
+</body>
+</html>
