@@ -16,6 +16,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
+    <script>
+        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+        formspree('initForm', { formElement: '#contact-form', formId: 'maqapryg' });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
     <style>
         body { transition: background-color 0.3s ease, color 0.3s ease; }
         .nav-link { cursor: pointer; transition: 0.3s; padding-bottom: 4px; }
@@ -25,9 +31,13 @@
         .glass-card { transition: all 0.3s ease; }
         .glass-card:hover { transform: translateY(-5px); }
         
-        /* Custom Glowing Text Classes */
         .glow-robux { text-shadow: 0 0 10px rgba(74, 222, 128, 0.8), 0 0 20px rgba(74, 222, 128, 0.5); }
         .glow-sunkun { text-shadow: 0 0 12px rgba(250, 204, 21, 0.9), 0 0 25px rgba(250, 204, 21, 0.6); }
+
+        /* Formspree Success State Styling */
+        [data-fs-success] { display: none; }
+        [data-fs-success]:not(:empty) { display: block; background: #10b981; color: white; padding: 1rem; border-radius: 0.5rem; text-align: center; font-weight: bold; margin-bottom: 1.5rem; }
+        [data-fs-error]:not(:empty) { display: block; color: #ef4444; font-size: 0.875rem; margin-top: 0.25rem; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
@@ -55,18 +65,41 @@
     </nav>
 
     <main id="home" class="page-section active max-w-6xl mx-auto px-6 py-20 text-center">
-        <span class="bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 text-sm font-bold px-4 py-1 rounded-full uppercase tracking-wider mb-6 inline-block">Professional Developer</span>
-        
-        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 text-slate-900 dark:text-white">HI, I'M KIAN.</h1>
-        <h2 class="text-2xl md:text-3xl text-blue-600 dark:text-blue-400 mb-8 font-light">YouTuber, Game Developer & Esports Manager</h2>
-        
-        <p class="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed mb-12">
-            I am an OCE-based developer determined to push the boundaries of Roblox experiences. With <strong>over 2 years of experience in Esports Management</strong> and as the <strong>Co-owner of Toaster Productions</strong>, I understand how to build games that aren't just fun to play, but built for strong communities. My background includes Fortnite map creation, Unreal Engine, and highly anticipated Roblox projects. To date, I've earned over <span class="text-green-400 font-extrabold tracking-wide glow-robux">1.2k+ Robux</span> through my development work.
-        </p>
+        <div class="min-h-[60vh] flex flex-col justify-center items-center">
+            <span class="bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 text-sm font-bold px-4 py-1 rounded-full uppercase tracking-wider mb-6 inline-block">Professional Developer</span>
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 text-slate-900 dark:text-white">HI, I'M KIAN.</h1>
+            <h2 class="text-2xl md:text-3xl text-blue-600 dark:text-blue-400 mb-8 font-light">YouTuber, Game Developer & Esports Manager</h2>
+            
+            <p class="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed mb-12">
+                I am an OCE-based developer determined to push the boundaries of Roblox experiences. With <strong>over 2 years of experience in Esports Management</strong> and as the <strong>Co-owner of Toaster Productions</strong>, I understand how to build games that aren't just fun to play, but built for strong communities. My background includes Fortnite map creation, Unreal Engine, and highly anticipated Roblox projects. To date, I've earned over <span class="text-green-400 font-extrabold tracking-wide glow-robux">1.2k+ Robux</span> through my development work.
+            </p>
 
-        <div class="flex justify-center gap-4 flex-wrap">
-            <button onclick="showPage('portfolio')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-bold transition shadow-lg shadow-blue-500/30">View My Work</button>
-            <button onclick="showPage('contact')" class="bg-slate-200 hover:bg-slate-300 text-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-white px-8 py-3 rounded-full font-bold transition">Get In Touch</button>
+            <div class="flex justify-center gap-4 flex-wrap mb-20">
+                <button onclick="showPage('portfolio')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-bold transition shadow-lg shadow-blue-500/30">View My Work</button>
+                <button onclick="showPage('contact')" class="bg-slate-200 hover:bg-slate-300 text-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-white px-8 py-3 rounded-full font-bold transition">Get In Touch</button>
+            </div>
+        </div>
+
+        <div class="text-left mt-10">
+            <h3 class="text-3xl font-bold mb-10 text-center text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-4">My Core Expertise</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg glass-card">
+                    <i class="fa-solid fa-code text-4xl text-blue-500 mb-4"></i>
+                    <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Game Development</h4>
+                    <p class="text-slate-600 dark:text-slate-400">Specializing in immersive environment design, high-quality R6/R15 animations, and structuring projects from initial prototype to final polish.</p>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg glass-card">
+                    <i class="fa-solid fa-headset text-4xl text-purple-500 mb-4"></i>
+                    <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Esports & Community</h4>
+                    <p class="text-slate-600 dark:text-slate-400">With 2+ years of management experience, I know how to foster active player bases, organize events, and scale community engagement.</p>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg glass-card">
+                    <i class="fa-solid fa-chart-line text-4xl text-green-500 mb-4"></i>
+                    <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Studio Leadership</h4>
+                    <p class="text-slate-600 dark:text-slate-400">As Co-owner of Toaster Productions, I oversee project direction, manage team collaborations, and implement effective monetization strategies.</p>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -117,15 +150,24 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group">
-                <img src="https://via.placeholder.com/600x400/1e293b/ffffff?text=Build+Screenshot+1" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
+            <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-700">
+                <img src="Image1.png" alt="Gallery Image 1" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image1.png'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
             </div>
-            <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group">
-                <img src="https://via.placeholder.com/600x400/1e293b/ffffff?text=Build+Screenshot+2" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
+            <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-700">
+                <img src="Image2.png" alt="Gallery Image 2" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image2.png'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
             </div>
-            <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group text-center flex flex-col justify-center items-center">
+            <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-700">
+                <img src="Image3.png" alt="Gallery Image 3" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image3.png'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
+            </div>
+            <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-700">
+                <img src="Image4.png" alt="Gallery Image 4" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image4.png'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
+            </div>
+            <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-700">
+                <img src="Image5.png" alt="Gallery Image 5" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image5.png'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
+            </div>
+            <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-700 text-center flex flex-col justify-center items-center">
                 <i class="fa-solid fa-plus text-4xl text-slate-400 mb-2"></i>
-                <span class="text-slate-500 font-bold">More coming soon</span>
+                <span class="text-slate-500 font-bold">Upload Image6.png</span>
             </div>
         </div>
     </main>
@@ -169,25 +211,30 @@
         
         <div class="bg-white dark:bg-slate-800 p-8 md:p-10 rounded-2xl shadow-xl max-w-2xl mx-auto border border-slate-200 dark:border-slate-700 text-left">
             
-            <form action="https://formspree.io/f/YOUR_FORM_HASH_ID" method="POST" class="space-y-6">
+            <div data-fs-success>Message sent successfully! I will get back to you soon.</div>
+            
+            <form id="contact-form" class="space-y-6">
                 
-                <div class="grid md:grid-cols-2 gap-6">
+                <div data-fs-error class="font-bold"></div> <div class="grid md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Name / Roblox ID</label>
-                        <input type="text" name="name" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 text-slate-900 dark:text-white">
+                        <input type="text" name="name" required data-fs-field class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 text-slate-900 dark:text-white">
+                        <span data-fs-error="name"></span>
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Email or Discord</label>
-                        <input type="text" name="contact_info" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 text-slate-900 dark:text-white">
+                        <input type="email" name="email" required data-fs-field class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 text-slate-900 dark:text-white">
+                        <span data-fs-error="email"></span>
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Message</label>
-                    <textarea name="message" rows="5" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 text-slate-900 dark:text-white placeholder-slate-400"></textarea>
+                    <textarea name="message" rows="5" required data-fs-field class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 text-slate-900 dark:text-white placeholder-slate-400"></textarea>
+                    <span data-fs-error="message"></span>
                 </div>
 
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-lg transition text-lg shadow-lg shadow-blue-500/30">
+                <button type="submit" data-fs-submit-btn class="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-bold py-4 rounded-lg transition text-lg shadow-lg shadow-blue-500/30">
                     Send Message <i class="fa-solid fa-paper-plane ml-2"></i>
                 </button>
             </form>
