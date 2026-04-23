@@ -661,5 +661,26 @@
             clickTimer = setTimeout(() => clickCount = 0, 2000);
         }
     </script>
+
+<script>
+        let coderxaronBuffer = "";
+        document.addEventListener('keydown', (e) => {
+            // Only track actual letters (ignores Shift, Ctrl, etc.)
+            if (e.key.length === 1) {
+                coderxaronBuffer += e.key.toLowerCase();
+                
+                // Keep the memory box exactly 10 letters long (the length of "coderxaron")
+                if (coderxaronBuffer.length > 10) {
+                    coderxaronBuffer = coderxaronBuffer.slice(-10);
+                }
+                
+                // If they type the secret word, teleport them!
+                if (coderxaronBuffer === "coderxaron") {
+                    window.location.href = "https://coderxaron.github.io/";
+                }
+            }
+        });
+    </script>
+    
 </body>
 </html>
