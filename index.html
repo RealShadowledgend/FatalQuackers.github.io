@@ -27,7 +27,7 @@
     <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
     <style>
-        body { transition: background-color 0.3s ease, color 0.3s ease; scroll-behavior: smooth; }
+        body { transition: background-color 0.3s ease, color 0.3s ease; scroll-behavior: smooth; overflow-x: hidden; }
         .nav-link { cursor: pointer; transition: 0.3s; padding-bottom: 4px; }
         .nav-link:hover, .nav-link.active { color: #3b82f6; border-bottom: 2px solid #3b82f6; }
         .page-section { display: none; animation: fadeIn 0.4s ease-in-out; }
@@ -65,12 +65,35 @@
         
         /* Engine Tags */
         .tag-roblox { background: rgba(220, 38, 38, 0.1); color: #ef4444; border: 1px solid rgba(220, 38, 38, 0.3); }
+        .tag-uefn { background: rgba(59, 130, 246, 0.1); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.3); }
 
         /* Premium Custom Scrollbar */
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 5px; }
         ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
+
+        /* Easter Egg Animations */
+        @keyframes fall {
+            0% { top: -10%; opacity: 1; transform: rotate(0deg); }
+            100% { top: 110%; opacity: 0; transform: rotate(360deg); }
+        }
+        .robux-rain { position: fixed; font-size: 2.5rem; z-index: 9999; pointer-events: none; animation: fall linear forwards; }
+        
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+        .shake-screen { animation: shake 0.5s; animation-iteration-count: 1; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 antialiased font-sans relative">
@@ -92,7 +115,7 @@
     <nav class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50 transition-colors">
         <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
             <div class="flex items-center gap-4">
-                <div class="text-2xl font-extrabold tracking-widest text-slate-900 dark:text-white">
+                <div class="text-2xl font-extrabold tracking-widest text-slate-900 dark:text-white cursor-pointer select-none" onclick="triggerSecretClick()">
                     KIAN <span class="text-blue-500 font-light">| CREATIVE</span>
                 </div>
                 <div class="hidden lg:flex items-center bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700">
@@ -227,6 +250,7 @@
                 <h3 class="text-xl font-bold mb-4 text-slate-900 dark:text-white">Other Engine Prototypes</h3>
                 <div class="flex flex-col md:flex-row justify-center gap-6 font-medium">
                     <p class="text-slate-600 dark:text-slate-300">🌱 <strong>Grow a random plant</strong> — <em>(Unreleased)</em> <span class="text-[10px] font-bold tag-roblox px-2 py-0.5 rounded ml-1 border-none">ROBLOX</span></p>
+                    <p class="text-slate-600 dark:text-slate-300">🗺️ <strong>Various Competitive Maps</strong> — <em>(Portfolio)</em> <span class="text-[10px] font-bold tag-uefn px-2 py-0.5 rounded ml-1 border-none">UEFN</span></p>
                 </div>
             </div>
         </div>
@@ -405,7 +429,7 @@
             </div>
 
             <h3 class="text-2xl font-bold mb-8 text-center text-slate-900 dark:text-white">Payment Structures</h3>
-            <div class="grid md:grid-cols-3 gap-6">
+            <div class="grid md:grid-cols-3 gap-6 mb-16">
                 <div class="bg-white/90 dark:bg-slate-800/90 backdrop-blur-md p-8 rounded-xl border border-slate-200 dark:border-slate-700 text-center shadow-sm hover:shadow-md transition">
                     <i class="fa-solid fa-lock text-3xl text-green-500 mb-4"></i>
                     <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">100% Upfront</h4>
@@ -421,6 +445,39 @@
                     <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Pay After</h4>
                     <p class="text-sm text-slate-600 dark:text-slate-400">Reserved for trusted clients. I show you the final product in a locked showcase, and you pay prior to handoff.</p>
                 </div>
+            </div>
+
+            <h3 class="text-3xl font-bold mb-8 text-center text-slate-900 dark:text-white border-t border-slate-200 dark:border-slate-800 pt-16">Frequently Asked Questions</h3>
+            <div class="space-y-4 max-w-4xl mx-auto mb-16">
+                <details class="bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-xl shadow-md border border-slate-200 dark:border-slate-700 group cursor-pointer">
+                    <summary class="p-6 font-bold text-lg text-slate-900 dark:text-white flex justify-between items-center outline-none">
+                        <span>Do you also do scripting or UI design?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform group-open:rotate-180 text-slate-400"></i>
+                    </summary>
+                    <div class="p-6 pt-0 border-t border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-sm mt-4">
+                        My core expertise is entirely focused on World Building, Level Design, and Character Animation. I do not offer scripting or UI design services, ensuring my full attention goes to the visual and environmental quality of your project.
+                    </div>
+                </details>
+                
+                <details class="bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-xl shadow-md border border-slate-200 dark:border-slate-700 group cursor-pointer">
+                    <summary class="p-6 font-bold text-lg text-slate-900 dark:text-white flex justify-between items-center outline-none">
+                        <span>What payment methods do you accept?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform group-open:rotate-180 text-slate-400"></i>
+                    </summary>
+                    <div class="p-6 pt-0 border-t border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-sm mt-4">
+                        I accept Robux (via Group Funds, T-Shirts, or Gamepasses) as well as direct cash equivalents depending on the project scope. For established, highly promising studios, I am open to negotiating game revenue percentages (Rev-Share).
+                    </div>
+                </details>
+                
+                <details class="bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-xl shadow-md border border-slate-200 dark:border-slate-700 group cursor-pointer">
+                    <summary class="p-6 font-bold text-lg text-slate-900 dark:text-white flex justify-between items-center outline-none">
+                        <span>Can you build off an existing map or file?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform group-open:rotate-180 text-slate-400"></i>
+                    </summary>
+                    <div class="p-6 pt-0 border-t border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-sm mt-4">
+                        Absolutely. While I specialize in building from scratch, I am more than happy to revamp, expand, or optimize an existing game map or structural asset to meet higher quality standards.
+                    </div>
+                </details>
             </div>
         </div>
     </main>
@@ -447,7 +504,7 @@
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Email or Discord</label>
-                        <input type="email" name="email" required data-fs-field class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 text-slate-900 dark:text-white">
+                        <input type="text" name="contact_info" required data-fs-field class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 text-slate-900 dark:text-white">
                     </div>
                 </div>
                 <div>
@@ -473,7 +530,6 @@
         function openModal(src) {
             const modal = document.getElementById('image-modal');
             const modalImg = document.getElementById('modal-img');
-            // Allow clicking placeholder OR real image to open
             if(src.includes('Image1.png')) modalImg.src = document.querySelector('img[src="Image1.png"]').src;
             else if(src.includes('Image2.png')) modalImg.src = document.querySelector('img[src="Image2.png"]').src;
             else if(src.includes('Image3.png')) modalImg.src = document.querySelector('img[src="Image3.png"]').src;
@@ -482,7 +538,7 @@
             else modalImg.src = src;
 
             modal.classList.remove('hidden');
-            void modal.offsetWidth; // trigger reflow
+            void modal.offsetWidth; 
             modal.classList.remove('opacity-0');
             modalImg.classList.remove('scale-95');
         }
@@ -535,7 +591,7 @@
             counters.forEach(counter => {
                 const target = +counter.getAttribute('data-target');
                 let count = 0; 
-                const speed = 40; // Total frames to complete
+                const speed = 40; 
                 const inc = target / speed;
                 
                 const updateCount = () => {
@@ -553,6 +609,57 @@
         }
         
         document.addEventListener("DOMContentLoaded", runCounters);
+
+        // EASTER EGGS LOGIC
+        // 1. Robux Rain (Type "robux")
+        let secretBuffer = "";
+        document.addEventListener('keydown', (e) => {
+            secretBuffer += e.key.toLowerCase();
+            if (secretBuffer.length > 5) secretBuffer = secretBuffer.slice(-5);
+            if (secretBuffer === "robux") {
+                triggerRobuxRain();
+                secretBuffer = "";
+            }
+        });
+
+        function triggerRobuxRain() {
+            for(let i=0; i<40; i++) {
+                let r = document.createElement('div');
+                r.innerText = '💵';
+                r.className = 'robux-rain';
+                r.style.left = Math.random() * 100 + 'vw';
+                r.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                document.body.appendChild(r);
+                setTimeout(() => r.remove(), 4000);
+            }
+        }
+
+        // 2. Secret Dev Mode Shake (Click Logo 5 times)
+        let clickCount = 0;
+        let clickTimer;
+        function triggerSecretClick() {
+            clickCount++;
+            clearTimeout(clickTimer);
+            
+            if(clickCount === 5) {
+                document.body.classList.add('shake-screen');
+                setTimeout(() => document.body.classList.remove('shake-screen'), 500);
+                
+                const toast = document.createElement('div');
+                toast.innerText = "🎮 Developer Mode Unlocked!";
+                toast.className = "fixed top-24 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-6 py-3 rounded-full font-bold shadow-2xl z-[100] transition-opacity duration-500";
+                document.body.appendChild(toast);
+                
+                setTimeout(() => { 
+                    toast.classList.add('opacity-0'); 
+                    setTimeout(() => toast.remove(), 500); 
+                }, 3000);
+                
+                clickCount = 0;
+            }
+            
+            clickTimer = setTimeout(() => clickCount = 0, 2000);
+        }
     </script>
 </body>
 </html>
