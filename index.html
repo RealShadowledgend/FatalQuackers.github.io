@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Kian - Professional Game Developer, Builder, and Animator specializing in Roblox Studio, Unreal Engine, and UEFN based in OCE.">
-    <meta name="keywords" content="Roblox Developer, Roblox Builder, Roblox Animator, UEFN Map Maker, Unreal Engine Developer, Game Dev Portfolio">
     
     <title>Kian | Professional Game Developer</title>
     
@@ -56,17 +55,35 @@
             background-size: 400% 400%;
             animation: gradientMove 15s ease infinite;
         }
+
+        /* Developer Grid Background */
+        .bg-grid-pattern {
+            background-image: linear-gradient(to right, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
         
         /* Engine Tags */
         .tag-roblox { background: rgba(220, 38, 38, 0.1); color: #ef4444; border: 1px solid rgba(220, 38, 38, 0.3); }
         .tag-uefn { background: rgba(59, 130, 246, 0.1); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.3); }
+
+        /* Premium Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 antialiased font-sans relative">
 
-    <button onclick="showPage('contact')" class="fixed bottom-6 right-6 z-50 bg-blue-600 hover:bg-blue-500 text-white p-4 rounded-full shadow-lg shadow-blue-500/40 hover:scale-110 transition-transform flex items-center justify-center">
-        <i class="fa-solid fa-paper-plane text-xl"></i>
-    </button>
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="bg-slate-800 dark:bg-slate-700 hover:bg-slate-700 text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform flex items-center justify-center opacity-70 hover:opacity-100">
+            <i class="fa-solid fa-chevron-up"></i>
+        </button>
+        <button onclick="showPage('contact')" class="bg-blue-600 hover:bg-blue-500 text-white p-4 rounded-full shadow-lg shadow-blue-500/40 hover:scale-110 transition-transform flex items-center justify-center group relative">
+            <i class="fa-solid fa-paper-plane text-xl group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"></i>
+        </button>
+    </div>
 
     <nav class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50 transition-colors">
         <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
@@ -130,14 +147,13 @@
         </div>
 
         <div class="max-w-6xl mx-auto px-6 py-20 text-left">
-            
             <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl text-center border border-slate-200 dark:border-slate-700 shadow-md mb-20">
                 <h4 class="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-6">Tools of the Trade</h4>
                 <div class="flex flex-wrap justify-center gap-8 text-slate-800 dark:text-white font-black text-lg">
-                    <div class="flex items-center"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg" class="w-6 h-6 mr-2 dark:invert" alt="Roblox"> Roblox Studio</div>
-                    <div class="flex items-center"><i class="fa-brands fa-uncharted text-2xl mr-2 text-orange-500"></i> Unreal Engine</div>
-                    <div class="flex items-center"><i class="fa-solid fa-map-location-dot text-2xl mr-2 text-blue-500"></i> UEFN</div>
-                    <div class="flex items-center"><i class="fa-solid fa-cube text-2xl mr-2 text-orange-400"></i> Blender</div>
+                    <div class="flex items-center hover:text-blue-500 transition-colors cursor-default"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg" class="w-6 h-6 mr-2 dark:invert" alt="Roblox"> Roblox Studio</div>
+                    <div class="flex items-center hover:text-orange-500 transition-colors cursor-default"><i class="fa-brands fa-uncharted text-2xl mr-2 text-orange-500"></i> Unreal Engine</div>
+                    <div class="flex items-center hover:text-blue-400 transition-colors cursor-default"><i class="fa-solid fa-map-location-dot text-2xl mr-2 text-blue-500"></i> UEFN</div>
+                    <div class="flex items-center hover:text-orange-400 transition-colors cursor-default"><i class="fa-solid fa-cube text-2xl mr-2 text-orange-400"></i> Blender</div>
                 </div>
             </div>
 
@@ -213,14 +229,24 @@
         </div>
 
         <h3 class="text-3xl font-bold mb-8 text-center text-slate-900 dark:text-white border-t border-slate-200 dark:border-slate-800 pt-16">Client Vouches</h3>
-        <div class="grid md:grid-cols-2 gap-6">
-            <div class="bg-slate-100 dark:bg-slate-800/50 p-6 rounded-xl border-l-4 border-blue-500 italic text-slate-700 dark:text-slate-300">
-                "Kian is an incredibly dedicated developer. The work delivered was exactly what we needed, perfectly optimized, and completed on time. Highly recommended for any studio looking for quality."
+        
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-slate-100 dark:bg-slate-800/50 p-6 rounded-xl border-l-4 border-blue-500 italic text-slate-700 dark:text-slate-300 relative">
+                <i class="fa-solid fa-quote-right absolute top-4 right-4 text-3xl opacity-10 text-blue-500"></i>
+                "Kian is an incredibly dedicated developer. The work delivered was exactly what we needed, perfectly optimized, and completed on time. Highly recommended."
                 <div class="font-bold text-slate-900 dark:text-white mt-4 not-italic text-sm">— Upcoming Studio Client</div>
             </div>
-            <div class="bg-slate-100 dark:bg-slate-800/50 p-6 rounded-xl border-l-4 border-purple-500 italic text-slate-700 dark:text-slate-300">
+            
+            <div class="bg-slate-100 dark:bg-slate-800/50 p-6 rounded-xl border-l-4 border-purple-500 italic text-slate-700 dark:text-slate-300 relative">
+                <i class="fa-solid fa-quote-right absolute top-4 right-4 text-3xl opacity-10 text-purple-500"></i>
                 "Not only is the building top-tier, but the communication was excellent. It's hard to find reliable devs on Roblox, but Kian is definitely one of them. Will be hiring again!"
                 <div class="font-bold text-slate-900 dark:text-white mt-4 not-italic text-sm">— Past Commissioner</div>
+            </div>
+
+            <div class="bg-slate-100 dark:bg-slate-800/50 p-6 rounded-xl border-l-4 border-green-500 italic text-slate-700 dark:text-slate-300 relative">
+                <i class="fa-solid fa-quote-right absolute top-4 right-4 text-3xl opacity-10 text-green-500"></i>
+                "-Will never make you feel amused"
+                <div class="font-bold text-slate-900 dark:text-white mt-4 not-italic text-sm">— Acido</div>
             </div>
         </div>
     </main>
@@ -238,23 +264,43 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-700 relative">
-                <span class="absolute top-2 right-2 text-[10px] font-bold tag-roblox px-2 py-0.5 rounded z-10 backdrop-blur-sm bg-white/80 dark:bg-black/80">ROBLOX</span>
-                <img src="Image1.png" alt="Gallery" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image1.png'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
+                <span class="absolute top-2 right-2 text-[10px] font-bold tag-roblox px-2 py-0.5 rounded z-20 backdrop-blur-sm bg-white/80 dark:bg-black/80">ROBLOX</span>
+                <div class="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/40 transition-all duration-300 z-10 flex items-center justify-center cursor-pointer">
+                    <i class="fa-solid fa-expand text-white opacity-0 group-hover:opacity-100 text-4xl transition-opacity duration-300 drop-shadow-md"></i>
+                </div>
+                <img src="Image1.png" alt="Gallery" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image1.png'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
             </div>
+            
             <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-700 relative">
-                <span class="absolute top-2 right-2 text-[10px] font-bold tag-uefn px-2 py-0.5 rounded z-10 backdrop-blur-sm bg-white/80 dark:bg-black/80">UEFN</span>
-                <img src="Image2.png" alt="Gallery" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image2.png'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
+                <span class="absolute top-2 right-2 text-[10px] font-bold tag-uefn px-2 py-0.5 rounded z-20 backdrop-blur-sm bg-white/80 dark:bg-black/80">UEFN</span>
+                <div class="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/40 transition-all duration-300 z-10 flex items-center justify-center cursor-pointer">
+                    <i class="fa-solid fa-expand text-white opacity-0 group-hover:opacity-100 text-4xl transition-opacity duration-300 drop-shadow-md"></i>
+                </div>
+                <img src="Image2.png" alt="Gallery" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image2.png'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
             </div>
+            
             <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-700 relative">
-                <span class="absolute top-2 right-2 text-[10px] font-bold bg-orange-100 text-orange-600 border border-orange-300 dark:bg-orange-900/50 dark:text-orange-400 dark:border-orange-700 px-2 py-0.5 rounded z-10 backdrop-blur-sm">ANIMATION</span>
-                <img src="Image3.png" alt="Gallery" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image3.png'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
+                <span class="absolute top-2 right-2 text-[10px] font-bold bg-orange-100 text-orange-600 border border-orange-300 dark:bg-orange-900/50 dark:text-orange-400 dark:border-orange-700 px-2 py-0.5 rounded z-20 backdrop-blur-sm">ANIMATION</span>
+                <div class="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/40 transition-all duration-300 z-10 flex items-center justify-center cursor-pointer">
+                    <i class="fa-solid fa-expand text-white opacity-0 group-hover:opacity-100 text-4xl transition-opacity duration-300 drop-shadow-md"></i>
+                </div>
+                <img src="Image3.png" alt="Gallery" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image3.png'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
             </div>
-            <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-700">
-                <img src="Image4.png" alt="Gallery" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image4.png'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
+            
+            <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-700 relative">
+                <div class="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/40 transition-all duration-300 z-10 flex items-center justify-center cursor-pointer">
+                    <i class="fa-solid fa-expand text-white opacity-0 group-hover:opacity-100 text-4xl transition-opacity duration-300 drop-shadow-md"></i>
+                </div>
+                <img src="Image4.png" alt="Gallery" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image4.png'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
             </div>
-            <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-700">
-                <img src="Image5.png" alt="Gallery" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image5.png'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
+            
+            <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-700 relative">
+                <div class="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/40 transition-all duration-300 z-10 flex items-center justify-center cursor-pointer">
+                    <i class="fa-solid fa-expand text-white opacity-0 group-hover:opacity-100 text-4xl transition-opacity duration-300 drop-shadow-md"></i>
+                </div>
+                <img src="Image5.png" alt="Gallery" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image5.png'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
             </div>
+            
             <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-700 text-center flex flex-col justify-center items-center">
                 <i class="fa-solid fa-plus text-4xl text-slate-400 mb-2"></i>
                 <span class="text-slate-500 font-bold">More Uploads Pending</span>
@@ -262,112 +308,114 @@
         </div>
     </main>
 
-    <main id="pricing" class="page-section max-w-6xl mx-auto px-6 py-20">
-        <h2 class="text-4xl font-bold mb-12 text-center text-slate-900 dark:text-white">Pricing & Payments</h2>
-        
-        <h3 class="text-2xl font-bold mb-8 text-center text-slate-900 dark:text-white">Base Commission Rates</h3>
-        <div class="grid md:grid-cols-2 gap-8 mb-16">
-            <div class="bg-slate-900 p-8 rounded-xl border border-slate-700 shadow-lg relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl"><i class="fa-solid fa-hammer"></i></div>
-                <h3 class="text-2xl font-bold mb-6 text-white relative z-10"><i class="fa-solid fa-hammer mr-2"></i> Building</h3>
-                <div class="space-y-4 text-slate-300 font-medium relative z-10">
-                    <div class="flex justify-between border-b border-slate-700/50 pb-2"><span>Simple Assets</span><span class="font-bold text-blue-500">50 - 100 R$</span></div>
-                    <div class="flex justify-between border-b border-slate-700/50 pb-2"><span>Detailed Props</span><span class="font-bold text-blue-500">250 - 400 R$</span></div>
-                    <div class="flex justify-between border-b border-slate-700/50 pb-2"><span>Exterior Build</span><span class="font-bold text-blue-500">500 - 800 R$</span></div>
-                    <div class="flex justify-between border-b border-slate-700/50 pb-2"><span>Interior Build</span><span class="font-bold text-blue-500">800 - 1.2k R$</span></div>
-                    <div class="flex justify-between border-b border-slate-700/50 pb-2"><span>Small Map / Lobby</span><span class="font-bold text-blue-500">1.5k - 2.5k R$</span></div>
-                    <div class="flex justify-between"><span>Large Map</span><span class="font-bold text-blue-500">3.5k - 10k R$</span></div>
-                </div>
-            </div>
-
-            <div class="bg-slate-900 p-8 rounded-xl border border-slate-700 shadow-lg relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl"><i class="fa-solid fa-person-running"></i></div>
-                <h3 class="text-2xl font-bold mb-6 text-white relative z-10"><i class="fa-solid fa-person-running mr-2"></i> Animation (R6 & R15)</h3>
-                <div class="space-y-4 text-slate-300 font-medium relative z-10">
-                    <div class="flex justify-between border-b border-slate-700/50 pb-2"><span>Basic Loops</span><span class="font-bold text-orange-500">50 - 250 R$</span></div>
-                    <div class="flex justify-between border-b border-slate-700/50 pb-2"><span>Action / Combat Moves</span><span class="font-bold text-orange-500">150 - 600 R$</span></div>
-                    <div class="flex justify-between border-b border-slate-700/50 pb-2"><span>Dances / Emotes</span><span class="font-bold text-orange-500">350 - 1.2k R$</span></div>
-                    <div class="flex justify-between"><span>Action Sets (Combos)</span><span class="font-bold text-orange-500">500 - 1.5k R$</span></div>
-                </div>
-            </div>
+    <main id="pricing" class="page-section bg-grid-pattern relative">
+        <div class="max-w-6xl mx-auto px-6 py-20 relative z-10">
+            <h2 class="text-4xl font-bold mb-12 text-center text-slate-900 dark:text-white bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm inline-block px-8 py-2 rounded-full border border-slate-200 dark:border-slate-800 mx-auto block w-max">Pricing & Payments</h2>
             
-            <div class="md:col-span-2 bg-gradient-to-r from-blue-900/50 to-purple-900/50 p-6 rounded-xl border border-blue-500/30 text-center shadow-inner">
-                <p class="text-blue-200 font-bold"><i class="fa-solid fa-map-location-dot mr-2"></i> Need a UEFN Map or Unreal Engine work? <span class="text-white font-normal underline cursor-pointer hover:text-blue-400" onclick="showPage('contact')">Contact me directly for a custom quote.</span></p>
-            </div>
-        </div>
-
-        <h3 class="text-2xl font-bold mb-8 text-center text-slate-900 dark:text-white">Deep Dive & Explanations</h3>
-        <div class="space-y-4 max-w-4xl mx-auto mb-16">
-            <details class="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 group cursor-pointer">
-                <summary class="p-6 font-bold text-xl text-blue-600 dark:text-blue-400 flex justify-between items-center outline-none">
-                    <span><i class="fa-solid fa-layer-group mr-2"></i> What's included in Building?</span>
-                    <i class="fa-solid fa-chevron-down transition-transform group-open:rotate-180 text-slate-400"></i>
-                </summary>
-                <div class="p-6 pt-0 border-t border-slate-200 dark:border-slate-700">
-                    <div class="grid md:grid-cols-2 gap-4 mt-6">
-                        <div class="bg-slate-50 dark:bg-slate-900 p-5 rounded-lg border border-slate-200 dark:border-slate-700">
-                            <h5 class="font-bold text-slate-900 dark:text-white mb-2">Assets & Props</h5>
-                            <p class="text-sm text-slate-600 dark:text-slate-400">Includes modeling and texturing for everything from simple background clutter (crates) to highly specific, detailed hero assets (furniture, weapons).</p>
-                        </div>
-                        <div class="bg-slate-50 dark:bg-slate-900 p-5 rounded-lg border border-slate-200 dark:border-slate-700">
-                            <h5 class="font-bold text-slate-900 dark:text-white mb-2">Structures</h5>
-                            <p class="text-sm text-slate-600 dark:text-slate-400">Ranges from decorative shop facades (Exterior) to fully fleshed-out, playable buildings with designed rooms and structural lighting (Interior).</p>
-                        </div>
+            <h3 class="text-2xl font-bold mb-8 text-center text-slate-900 dark:text-white">Base Commission Rates</h3>
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <div class="bg-slate-900 p-8 rounded-xl border border-slate-700 shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl"><i class="fa-solid fa-hammer"></i></div>
+                    <h3 class="text-2xl font-bold mb-6 text-white relative z-10"><i class="fa-solid fa-hammer mr-2"></i> Building</h3>
+                    <div class="space-y-4 text-slate-300 font-medium relative z-10">
+                        <div class="flex justify-between border-b border-slate-700/50 pb-2"><span>Simple Assets</span><span class="font-bold text-blue-500">50 - 100 R$</span></div>
+                        <div class="flex justify-between border-b border-slate-700/50 pb-2"><span>Detailed Props</span><span class="font-bold text-blue-500">250 - 400 R$</span></div>
+                        <div class="flex justify-between border-b border-slate-700/50 pb-2"><span>Exterior Build</span><span class="font-bold text-blue-500">500 - 800 R$</span></div>
+                        <div class="flex justify-between border-b border-slate-700/50 pb-2"><span>Interior Build</span><span class="font-bold text-blue-500">800 - 1.2k R$</span></div>
+                        <div class="flex justify-between border-b border-slate-700/50 pb-2"><span>Small Map / Lobby</span><span class="font-bold text-blue-500">1.5k - 2.5k R$</span></div>
+                        <div class="flex justify-between"><span>Large Map</span><span class="font-bold text-blue-500">3.5k - 10k R$</span></div>
                     </div>
                 </div>
-            </details>
-            <details class="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 group cursor-pointer">
-                <summary class="p-6 font-bold text-xl text-orange-500 dark:text-orange-400 flex justify-between items-center outline-none">
-                    <span><i class="fa-solid fa-film mr-2"></i> What's included in Animation?</span>
-                    <i class="fa-solid fa-chevron-down transition-transform group-open:rotate-180 text-slate-400"></i>
-                </summary>
-                <div class="p-6 pt-0 border-t border-slate-200 dark:border-slate-700">
-                    <div class="grid md:grid-cols-2 gap-4 mt-6">
-                        <div class="bg-slate-50 dark:bg-slate-900 p-5 rounded-lg border border-slate-200 dark:border-slate-700">
-                            <h5 class="font-bold text-slate-900 dark:text-white mb-2">R6 vs. R15 Rigs</h5>
-                            <p class="text-sm text-slate-600 dark:text-slate-400">R6 is priced lower due to fewer joints. R15 requires complex keyframing for hands, feet, and torso bends to look natural.</p>
-                        </div>
-                        <div class="bg-slate-50 dark:bg-slate-900 p-5 rounded-lg border border-slate-200 dark:border-slate-700">
-                            <h5 class="font-bold text-slate-900 dark:text-white mb-2">Combat & Sets</h5>
-                            <p class="text-sm text-slate-600 dark:text-slate-400">From single heavy sword strikes, all the way to complex 3-hit M1 combos or cinematic sequences requiring specific timing.</p>
-                        </div>
+
+                <div class="bg-slate-900 p-8 rounded-xl border border-slate-700 shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl"><i class="fa-solid fa-person-running"></i></div>
+                    <h3 class="text-2xl font-bold mb-6 text-white relative z-10"><i class="fa-solid fa-person-running mr-2"></i> Animation (R6 & R15)</h3>
+                    <div class="space-y-4 text-slate-300 font-medium relative z-10">
+                        <div class="flex justify-between border-b border-slate-700/50 pb-2"><span>Basic Loops</span><span class="font-bold text-orange-500">50 - 250 R$</span></div>
+                        <div class="flex justify-between border-b border-slate-700/50 pb-2"><span>Action / Combat Moves</span><span class="font-bold text-orange-500">150 - 600 R$</span></div>
+                        <div class="flex justify-between border-b border-slate-700/50 pb-2"><span>Dances / Emotes</span><span class="font-bold text-orange-500">350 - 1.2k R$</span></div>
+                        <div class="flex justify-between"><span>Action Sets (Combos)</span><span class="font-bold text-orange-500">500 - 1.5k R$</span></div>
                     </div>
                 </div>
-            </details>
-            
-            <details class="bg-red-50 dark:bg-red-900/10 rounded-xl shadow-md border border-red-200 dark:border-red-900/50 group cursor-pointer">
-                <summary class="p-6 font-bold text-xl text-red-600 dark:text-red-400 flex justify-between items-center outline-none">
-                    <span><i class="fa-solid fa-scroll mr-2"></i> Terms of Service (TOS)</span>
-                    <i class="fa-solid fa-chevron-down transition-transform group-open:rotate-180 text-red-400"></i>
-                </summary>
-                <div class="p-6 pt-0 border-t border-red-200 dark:border-red-900/50">
-                    <ul class="list-disc pl-5 mt-4 space-y-2 text-sm text-slate-700 dark:text-slate-300">
-                        <li>I reserve the right to decline any commission if I feel it does not fit my skill set or schedule.</li>
-                        <li><strong>No refunds</strong> will be issued after the project is 50% completed or handed over.</li>
-                        <li>Any Roblox Marketplace Taxes (the 30% fee) must be covered by the client if paying via Gamepass or T-Shirt.</li>
-                        <li>Estimated deadlines are approximations; quality takes time. I will communicate any delays.</li>
-                        <li>You are entitled to two (2) free minor revisions. Major structural changes after approval will cost extra.</li>
-                    </ul>
+                
+                <div class="md:col-span-2 bg-gradient-to-r from-blue-900/80 to-purple-900/80 p-6 rounded-xl border border-blue-500/30 text-center shadow-xl backdrop-blur-md">
+                    <p class="text-blue-200 font-bold"><i class="fa-solid fa-map-location-dot mr-2"></i> Need a UEFN Map or Unreal Engine work? <span class="text-white font-normal underline cursor-pointer hover:text-blue-400 transition" onclick="showPage('contact')">Contact me directly for a custom quote.</span></p>
                 </div>
-            </details>
-        </div>
+            </div>
 
-        <h3 class="text-2xl font-bold mb-8 text-center text-slate-900 dark:text-white">Payment Structures</h3>
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="bg-white dark:bg-slate-800 p-8 rounded-xl border border-slate-200 dark:border-slate-700 text-center shadow-sm hover:shadow-md transition">
-                <i class="fa-solid fa-lock text-3xl text-green-500 mb-4"></i>
-                <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">100% Upfront</h4>
-                <p class="text-sm text-slate-600 dark:text-slate-400">You pay full amount before development begins, which guarantees your priority spot and rapid delivery.</p>
+            <h3 class="text-2xl font-bold mb-8 text-center text-slate-900 dark:text-white">Deep Dive & Explanations</h3>
+            <div class="space-y-4 max-w-4xl mx-auto mb-16">
+                <details class="bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-xl shadow-md border border-slate-200 dark:border-slate-700 group cursor-pointer">
+                    <summary class="p-6 font-bold text-xl text-blue-600 dark:text-blue-400 flex justify-between items-center outline-none">
+                        <span><i class="fa-solid fa-layer-group mr-2"></i> What's included in Building?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform group-open:rotate-180 text-slate-400"></i>
+                    </summary>
+                    <div class="p-6 pt-0 border-t border-slate-200 dark:border-slate-700">
+                        <div class="grid md:grid-cols-2 gap-4 mt-6">
+                            <div class="bg-slate-50 dark:bg-slate-900 p-5 rounded-lg border border-slate-200 dark:border-slate-700">
+                                <h5 class="font-bold text-slate-900 dark:text-white mb-2">Assets & Props</h5>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">Includes modeling and texturing for everything from simple background clutter (crates) to highly specific, detailed hero assets (furniture, weapons).</p>
+                            </div>
+                            <div class="bg-slate-50 dark:bg-slate-900 p-5 rounded-lg border border-slate-200 dark:border-slate-700">
+                                <h5 class="font-bold text-slate-900 dark:text-white mb-2">Structures</h5>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">Ranges from decorative shop facades (Exterior) to fully fleshed-out, playable buildings with designed rooms and structural lighting (Interior).</p>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+                <details class="bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-xl shadow-md border border-slate-200 dark:border-slate-700 group cursor-pointer">
+                    <summary class="p-6 font-bold text-xl text-orange-500 dark:text-orange-400 flex justify-between items-center outline-none">
+                        <span><i class="fa-solid fa-film mr-2"></i> What's included in Animation?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform group-open:rotate-180 text-slate-400"></i>
+                    </summary>
+                    <div class="p-6 pt-0 border-t border-slate-200 dark:border-slate-700">
+                        <div class="grid md:grid-cols-2 gap-4 mt-6">
+                            <div class="bg-slate-50 dark:bg-slate-900 p-5 rounded-lg border border-slate-200 dark:border-slate-700">
+                                <h5 class="font-bold text-slate-900 dark:text-white mb-2">R6 vs. R15 Rigs</h5>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">R6 is priced lower due to fewer joints. R15 requires complex keyframing for hands, feet, and torso bends to look natural.</p>
+                            </div>
+                            <div class="bg-slate-50 dark:bg-slate-900 p-5 rounded-lg border border-slate-200 dark:border-slate-700">
+                                <h5 class="font-bold text-slate-900 dark:text-white mb-2">Combat & Sets</h5>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">From single heavy sword strikes, all the way to complex 3-hit M1 combos or cinematic sequences requiring specific timing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+                
+                <details class="bg-red-50/90 dark:bg-red-900/20 backdrop-blur-md rounded-xl shadow-md border border-red-200 dark:border-red-900/50 group cursor-pointer">
+                    <summary class="p-6 font-bold text-xl text-red-600 dark:text-red-400 flex justify-between items-center outline-none">
+                        <span><i class="fa-solid fa-scroll mr-2"></i> Terms of Service (TOS)</span>
+                        <i class="fa-solid fa-chevron-down transition-transform group-open:rotate-180 text-red-400"></i>
+                    </summary>
+                    <div class="p-6 pt-0 border-t border-red-200 dark:border-red-900/50">
+                        <ul class="list-disc pl-5 mt-4 space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                            <li>I reserve the right to decline any commission if I feel it does not fit my skill set or schedule.</li>
+                            <li><strong>No refunds</strong> will be issued after the project is 50% completed or handed over.</li>
+                            <li>Any Roblox Marketplace Taxes (the 30% fee) must be covered by the client if paying via Gamepass or T-Shirt.</li>
+                            <li>Estimated deadlines are approximations; quality takes time. I will communicate any delays.</li>
+                            <li>You are entitled to two (2) free minor revisions. Major structural changes after approval will cost extra.</li>
+                        </ul>
+                    </div>
+                </details>
             </div>
-            <div class="bg-white dark:bg-slate-800 p-8 rounded-xl border border-slate-200 dark:border-slate-700 text-center shadow-sm hover:shadow-md transition">
-                <i class="fa-solid fa-scale-balanced text-3xl text-blue-500 mb-4"></i>
-                <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">50 / 50 Split</h4>
-                <p class="text-sm text-slate-600 dark:text-slate-400">You pay 50% deposit. Once the work is previewed and approved, you pay remaining 50% for the files.</p>
-            </div>
-            <div class="bg-white dark:bg-slate-800 p-8 rounded-xl border border-slate-200 dark:border-slate-700 text-center shadow-sm hover:shadow-md transition">
-                <i class="fa-solid fa-handshake-angle text-3xl text-purple-500 mb-4"></i>
-                <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Pay After</h4>
-                <p class="text-sm text-slate-600 dark:text-slate-400">Reserved for trusted clients. I show you the final product in a locked showcase, and you pay prior to handoff.</p>
+
+            <h3 class="text-2xl font-bold mb-8 text-center text-slate-900 dark:text-white">Payment Structures</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white/90 dark:bg-slate-800/90 backdrop-blur-md p-8 rounded-xl border border-slate-200 dark:border-slate-700 text-center shadow-sm hover:shadow-md transition">
+                    <i class="fa-solid fa-lock text-3xl text-green-500 mb-4"></i>
+                    <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">100% Upfront</h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-400">You pay full amount before development begins, which guarantees your priority spot and rapid delivery.</p>
+                </div>
+                <div class="bg-white/90 dark:bg-slate-800/90 backdrop-blur-md p-8 rounded-xl border border-slate-200 dark:border-slate-700 text-center shadow-sm hover:shadow-md transition">
+                    <i class="fa-solid fa-scale-balanced text-3xl text-blue-500 mb-4"></i>
+                    <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">50 / 50 Split</h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-400">You pay 50% deposit. Once the work is previewed and approved, you pay remaining 50% for the files.</p>
+                </div>
+                <div class="bg-white/90 dark:bg-slate-800/90 backdrop-blur-md p-8 rounded-xl border border-slate-200 dark:border-slate-700 text-center shadow-sm hover:shadow-md transition">
+                    <i class="fa-solid fa-handshake-angle text-3xl text-purple-500 mb-4"></i>
+                    <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Pay After</h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-400">Reserved for trusted clients. I show you the final product in a locked showcase, and you pay prior to handoff.</p>
+                </div>
             </div>
         </div>
     </main>
@@ -410,8 +458,10 @@
 
     <footer class="text-center py-8 border-t border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900 mt-20 transition-colors pb-24 md:pb-8">
         <p>&copy; 2026 KIAN | CREATIVE. Changing the foundation of Multiplayer Gaming.</p>
-        <div class="mt-4 flex justify-center gap-4">
+        <div class="mt-4 flex justify-center gap-6">
             <a href="https://www.youtube.com/@Fatalquackers" target="_blank" class="text-2xl hover:text-red-500 transition"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="text-2xl hover:text-indigo-500 transition"><i class="fa-brands fa-discord"></i></a>
+            <a href="#" class="text-2xl hover:text-blue-400 transition"><i class="fa-brands fa-twitter"></i></a>
         </div>
     </footer>
 
