@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kian | Professional Game Developer</title>
     
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -34,58 +36,91 @@
         .glow-robux { text-shadow: 0 0 10px rgba(74, 222, 128, 0.8), 0 0 20px rgba(74, 222, 128, 0.5); }
         .glow-sunkun { text-shadow: 0 0 12px rgba(250, 204, 21, 0.9), 0 0 25px rgba(250, 204, 21, 0.6); }
 
-        /* Fixed Formspree Error Styling */
         [data-fs-error]:not(:empty) { display: block; color: #ef4444; font-size: 0.875rem; margin-top: 0.25rem; }
-
-        /* Accordion Custom Styling */
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Animated Hero Background */
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .hero-bg {
+            background: linear-gradient(-45deg, #0f172a, #1e3a8a, #020617, #0f172a);
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 antialiased font-sans">
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 antialiased font-sans relative">
 
-    <nav class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50 transition-colors">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-extrabold tracking-widest text-slate-900 dark:text-white">
-                KIAN <span class="text-blue-500 font-light">| CREATIVE</span>
+    <nav class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50 transition-colors">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+            <div class="flex items-center gap-4">
+                <div class="text-2xl font-extrabold tracking-widest text-slate-900 dark:text-white">
+                    KIAN <span class="text-blue-500 font-light">| CREATIVE</span>
+                </div>
+                <div class="hidden lg:flex items-center bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700">
+                    <span class="relative flex h-2.5 w-2.5 mr-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                    </span>
+                    <span class="text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wide">Commissions Open</span>
+                </div>
             </div>
             
-            <div class="hidden md:flex gap-6 font-semibold text-slate-600 dark:text-slate-300">
+            <div class="flex flex-wrap justify-center gap-4 md:gap-6 font-semibold text-sm md:text-base text-slate-600 dark:text-slate-300">
                 <a onclick="showPage('home')" class="nav-link active" id="nav-home">Home</a>
                 <a onclick="showPage('portfolio')" class="nav-link" id="nav-portfolio">Portfolio</a>
                 <a onclick="showPage('gallery')" class="nav-link" id="nav-gallery">Gallery</a>
                 <a onclick="showPage('pricing')" class="nav-link" id="nav-pricing">Pricing</a>
                 <a onclick="showPage('contact')" class="nav-link" id="nav-contact">Contact</a>
+                
+                <button onclick="toggleTheme()" class="text-lg hover:text-blue-500 transition ml-2">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
             </div>
-
-            <button onclick="toggleTheme()" class="text-xl text-slate-600 dark:text-slate-300 hover:text-blue-500 transition ml-4">
-                <i id="theme-icon" class="fa-solid fa-moon"></i>
-            </button>
         </div>
     </nav>
 
-    <main id="home" class="page-section active max-w-6xl mx-auto px-6 py-20 text-center">
-        <div class="min-h-[60vh] flex flex-col justify-center items-center">
-            <span class="bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 text-sm font-bold px-4 py-1 rounded-full uppercase tracking-wider mb-6 inline-block">Professional Developer</span>
-            
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 text-slate-900 dark:text-white">HI, I'M KIAN.</h1>
-            <h2 class="text-2xl md:text-3xl text-blue-600 dark:text-blue-400 mb-8 font-light">YouTuber, Game Developer & Esports Manager</h2>
-            
-            <p class="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed mb-12">
-                I am an OCE-based developer determined to push the boundaries of Roblox experiences. With <strong>over 2 years of experience in Esports Management</strong>, I am currently working for <strong>Toaster Productions</strong> and actively developing <strong>2 other redacted games</strong>. My background includes Fortnite map creation, Unreal Engine, and highly anticipated Roblox projects. To date, I've earned over <span class="text-green-400 font-extrabold tracking-wide glow-robux">1.2k+ Robux</span> through my development work.
-            </p>
+    <main id="home" class="page-section active">
+        <div class="hero-bg py-32 px-6 text-center text-white border-b border-slate-800 shadow-2xl relative overflow-hidden">
+            <div class="max-w-6xl mx-auto relative z-10">
+                <span class="bg-blue-500/20 text-blue-300 border border-blue-400/30 text-sm font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-6 inline-block backdrop-blur-sm">Professional Developer</span>
+                
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 drop-shadow-lg">HI, I'M KIAN.</h1>
+                <h2 class="text-2xl md:text-3xl text-blue-400 mb-8 font-light drop-shadow-md">YouTuber, Game Developer & Esports Manager</h2>
+                
+                <p class="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed mb-10 drop-shadow-md">
+                    I am an OCE-based developer determined to push the boundaries of Roblox experiences. With <strong>over 2 years of experience in Esports Management</strong>, I am currently working for <strong>Toaster Productions</strong> and actively developing <strong>2 other redacted games</strong>. My background includes Fortnite map creation, Unreal Engine, and highly anticipated Roblox projects.
+                </p>
 
-            <div class="flex justify-center gap-4 flex-wrap mb-20">
-                <button onclick="showPage('portfolio')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-bold transition shadow-lg shadow-blue-500/30">View My Work</button>
-                <button onclick="showPage('contact')" class="bg-slate-200 hover:bg-slate-300 text-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-white px-8 py-3 rounded-full font-bold transition">Get In Touch</button>
+                <div class="flex justify-center gap-4 flex-wrap mb-12">
+                    <button onclick="showPage('portfolio')" class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-full font-bold transition shadow-lg shadow-blue-500/30">View My Work</button>
+                    <a href="https://www.youtube.com/@Fatalquackers" target="_blank" class="bg-red-600 hover:bg-red-500 text-white px-8 py-3 rounded-full font-bold transition shadow-lg shadow-red-500/30 flex items-center">
+                        <i class="fa-brands fa-youtube mr-2 text-xl"></i> My Channel
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 max-w-lg mx-auto gap-4 pt-8 border-t border-slate-700/50">
+                    <div>
+                        <div class="text-4xl font-black text-green-400 glow-robux mb-1"><span class="counter" data-target="1200">0</span>+</div>
+                        <div class="text-sm text-slate-400 uppercase tracking-wide font-bold">Robux Earned</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-black text-yellow-400 glow-sunkun mb-1"><span class="counter" data-target="3000">0</span>+</div>
+                        <div class="text-sm text-slate-400 uppercase tracking-wide font-bold">Waiting Players</div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="text-left mt-10">
+        <div class="max-w-6xl mx-auto px-6 py-20 text-left">
             <h3 class="text-3xl font-bold mb-10 text-center text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-4">My Core Expertise</h3>
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-20">
                 <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg glass-card">
                     <i class="fa-solid fa-code text-4xl text-blue-500 mb-4"></i>
                     <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Game Development</h4>
@@ -102,6 +137,16 @@
                     <p class="text-slate-600 dark:text-slate-400">Currently working with Toaster Productions and unannounced titles, I oversee project direction, manage team collaborations, and implement effective monetization strategies.</p>
                 </div>
             </div>
+
+            <div class="bg-slate-200 dark:bg-slate-800/50 p-8 rounded-2xl text-center border border-slate-300 dark:border-slate-700">
+                <h4 class="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-6">Tools of the Trade</h4>
+                <div class="flex flex-wrap justify-center gap-8 text-slate-700 dark:text-slate-300 font-semibold">
+                    <div class="flex items-center"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg" class="w-6 h-6 mr-2 dark:invert" alt="Roblox"> Roblox Studio</div>
+                    <div class="flex items-center"><i class="fa-brands fa-uncharted text-2xl mr-2 text-orange-500"></i> Unreal Engine</div>
+                    <div class="flex items-center"><i class="fa-solid fa-cube text-2xl mr-2 text-blue-500"></i> Blender 3D</div>
+                    <div class="flex items-center"><i class="fa-solid fa-pen-nib text-2xl mr-2 text-purple-500"></i> UI & Design</div>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -115,7 +160,7 @@
             <p class="text-slate-300 mb-4 max-w-2xl mx-auto text-lg">Currently expanding the game based on community requests. Over <strong>3,000 players</strong> are actively waiting for the official release!</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
             <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg glass-card">
                 <i class="fa-solid fa-gamepad text-3xl mb-4 text-blue-500"></i>
                 <h3 class="text-xl font-bold mb-4 text-slate-900 dark:text-white">My Released Games</h3>
@@ -135,18 +180,29 @@
                     <li><span class="text-slate-600 dark:text-slate-300"><i class="fa-solid fa-building text-sm mr-2 text-purple-400"></i> Past Developer @ Spawnpoint Studios</span></li>
                     <li><a href="https://www.roblox.com/games/116118074078225/Brainrots-RNG" target="_blank" class="text-slate-600 dark:text-slate-300 hover:text-blue-500 transition"><i class="fa-solid fa-arrow-up-right-from-square text-sm mr-2 text-purple-400"></i> Brainrots RNG</a></li>
                     <li><a href="https://www.roblox.com/games/73859728333895/Poison-a-Candy" target="_blank" class="text-slate-600 dark:text-slate-300 hover:text-blue-500 transition"><i class="fa-solid fa-arrow-up-right-from-square text-sm mr-2 text-purple-400"></i> Poison a Candy</a></li>
-                    <li><a href="https://www.roblox.com/games/140616660145631/Core-RNG" target="_blank" class="text-slate-600 dark:text-slate-300 hover:text-blue-500 transition"><i class="fa-solid fa-arrow-up-right-from-square text-sm mr-2 text-purple-400"></i> Core RNG</a></li>
                 </ul>
             </div>
-
-            <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg glass-card md:col-span-2">
+            
+            <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg glass-card md:col-span-2 text-center">
                 <i class="fa-solid fa-seedling text-3xl mb-4 text-green-500"></i>
-                <h3 class="text-xl font-bold mb-4 text-slate-900 dark:text-white">Other Prototypes</h3>
-                <ul class="space-y-2 font-medium">
-                    <li class="text-slate-600 dark:text-slate-300">🌱 <strong>Grow a random plant</strong> — <em>Developed with a past studio (Unreleased)</em></li>
-                </ul>
+                <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Other Prototypes</h3>
+                <p class="text-slate-600 dark:text-slate-300 font-medium">🌱 <strong>Grow a random plant</strong> — <em>Developed with a past studio (Unreleased)</em></p>
             </div>
         </div>
+
+        <h3 class="text-3xl font-bold mb-8 text-center text-slate-900 dark:text-white border-t border-slate-200 dark:border-slate-800 pt-16">Client Vouches</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-slate-100 dark:bg-slate-800/50 p-6 rounded-xl border-l-4 border-blue-500 italic text-slate-700 dark:text-slate-300">
+                "Kian is an incredibly dedicated developer. The work delivered was exactly what we needed, perfectly optimized, and completed on time. Highly recommended for any studio looking for quality."
+                <div class="font-bold text-slate-900 dark:text-white mt-4 not-italic text-sm">— Upcoming Studio Client (Placeholder)</div>
+            </div>
+            <div class="bg-slate-100 dark:bg-slate-800/50 p-6 rounded-xl border-l-4 border-purple-500 italic text-slate-700 dark:text-slate-300">
+                "Not only is the building top-tier, but the communication was excellent. It's hard to find reliable devs on Roblox, but Kian is definitely one of them. Will be hiring again!"
+                <div class="font-bold text-slate-900 dark:text-white mt-4 not-italic text-sm">— Past Commissioner (Placeholder)</div>
+            </div>
+        </div>
+        <p class="text-center text-slate-500 text-sm mt-4">*(Reach out on Discord to see official vouches and references!)*</p>
+
     </main>
 
     <main id="gallery" class="page-section max-w-6xl mx-auto px-6 py-20">
@@ -162,19 +218,19 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-700">
-                <img src="Image1.png" alt="Gallery Image 1" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image1.png'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
+                <img src="Image1.png" alt="Gallery" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image1.png'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
             </div>
             <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-700">
-                <img src="Image2.png" alt="Gallery Image 2" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image2.png'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
+                <img src="Image2.png" alt="Gallery" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image2.png'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
             </div>
             <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-700">
-                <img src="Image3.png" alt="Gallery Image 3" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image3.png'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
+                <img src="Image3.png" alt="Gallery" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image3.png'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
             </div>
             <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-700">
-                <img src="Image4.png" alt="Gallery Image 4" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image4.png'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
+                <img src="Image4.png" alt="Gallery" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image4.png'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
             </div>
             <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-700">
-                <img src="Image5.png" alt="Gallery Image 5" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image5.png'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
+                <img src="Image5.png" alt="Gallery" onerror="this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Upload+Image5.png'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer">
             </div>
             <div class="aspect-video bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-700 text-center flex flex-col justify-center items-center">
                 <i class="fa-solid fa-plus text-4xl text-slate-400 mb-2"></i>
@@ -212,7 +268,6 @@
         </div>
 
         <h3 class="text-2xl font-bold mb-8 text-center text-slate-900 dark:text-white">Deep Dive & Explanations</h3>
-        
         <div class="space-y-4 max-w-4xl mx-auto mb-16">
             <details class="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 group cursor-pointer">
                 <summary class="p-6 font-bold text-xl text-blue-600 dark:text-blue-400 flex justify-between items-center outline-none">
@@ -223,20 +278,15 @@
                     <div class="grid md:grid-cols-2 gap-4 mt-6">
                         <div class="bg-slate-50 dark:bg-slate-900 p-5 rounded-lg border border-slate-200 dark:border-slate-700">
                             <h5 class="font-bold text-slate-900 dark:text-white mb-2">Assets & Props</h5>
-                            <p class="text-sm text-slate-600 dark:text-slate-400">Includes modeling and texturing for everything from simple background clutter (crates, foliage) to highly specific, detailed hero assets (furniture, weapons, vehicles).</p>
+                            <p class="text-sm text-slate-600 dark:text-slate-400">Includes modeling and texturing for everything from simple background clutter (crates) to highly specific, detailed hero assets (furniture, weapons).</p>
                         </div>
                         <div class="bg-slate-50 dark:bg-slate-900 p-5 rounded-lg border border-slate-200 dark:border-slate-700">
                             <h5 class="font-bold text-slate-900 dark:text-white mb-2">Structures</h5>
-                            <p class="text-sm text-slate-600 dark:text-slate-400">Ranges from decorative shop facades (Exterior Only) to fully fleshed-out, playable buildings with designed rooms, stairs, and structural lighting (With Interior).</p>
-                        </div>
-                        <div class="bg-slate-50 dark:bg-slate-900 p-5 rounded-lg border border-slate-200 dark:border-slate-700 md:col-span-2">
-                            <h5 class="font-bold text-slate-900 dark:text-white mb-2">Map Environments</h5>
-                            <p class="text-sm text-slate-600 dark:text-slate-400">Small maps cover enclosed 1v1 arenas or basic simulator lobbies. Large maps cover vast open worlds, detailed cityscapes, and terrain modeling requiring extensive time to optimize properly.</p>
+                            <p class="text-sm text-slate-600 dark:text-slate-400">Ranges from decorative shop facades (Exterior) to fully fleshed-out, playable buildings with designed rooms and structural lighting (Interior).</p>
                         </div>
                     </div>
                 </div>
             </details>
-
             <details class="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 group cursor-pointer">
                 <summary class="p-6 font-bold text-xl text-orange-500 dark:text-orange-400 flex justify-between items-center outline-none">
                     <span><i class="fa-solid fa-film mr-2"></i> What's included in Animation?</span>
@@ -246,77 +296,82 @@
                     <div class="grid md:grid-cols-2 gap-4 mt-6">
                         <div class="bg-slate-50 dark:bg-slate-900 p-5 rounded-lg border border-slate-200 dark:border-slate-700">
                             <h5 class="font-bold text-slate-900 dark:text-white mb-2">R6 vs. R15 Rigs</h5>
-                            <p class="text-sm text-slate-600 dark:text-slate-400">R6 animations are priced on the lower end due to fewer joints. R15 animations are slightly higher as they require more complex keyframing for hands, feet, and torso bends to look natural.</p>
+                            <p class="text-sm text-slate-600 dark:text-slate-400">R6 is priced lower due to fewer joints. R15 requires complex keyframing for hands, feet, and torso bends to look natural.</p>
                         </div>
                         <div class="bg-slate-50 dark:bg-slate-900 p-5 rounded-lg border border-slate-200 dark:border-slate-700">
-                            <h5 class="font-bold text-slate-900 dark:text-white mb-2">Loops & Emotes</h5>
-                            <p class="text-sm text-slate-600 dark:text-slate-400">Perfectly transitioning idles, walks, runs, and sit animations. Emotes involve 5-10 seconds of expressive, continuous movement tailored to a specific mood.</p>
-                        </div>
-                        <div class="bg-slate-50 dark:bg-slate-900 p-5 rounded-lg border border-slate-200 dark:border-slate-700 md:col-span-2">
-                            <h5 class="font-bold text-slate-900 dark:text-white mb-2">Combat & Action Sets</h5>
-                            <p class="text-sm text-slate-600 dark:text-slate-400">From single heavy sword strikes and gun reloads, all the way to complex 3-hit M1 combos or cinematic sequences that require specific timing and weight behind the movement.</p>
+                            <h5 class="font-bold text-slate-900 dark:text-white mb-2">Combat & Sets</h5>
+                            <p class="text-sm text-slate-600 dark:text-slate-400">From single heavy sword strikes, all the way to complex 3-hit M1 combos or cinematic sequences requiring specific timing.</p>
                         </div>
                     </div>
+                </div>
+            </details>
+            
+            <details class="bg-red-50 dark:bg-red-900/10 rounded-xl shadow-md border border-red-200 dark:border-red-900/50 group cursor-pointer">
+                <summary class="p-6 font-bold text-xl text-red-600 dark:text-red-400 flex justify-between items-center outline-none">
+                    <span><i class="fa-solid fa-scroll mr-2"></i> Terms of Service (TOS)</span>
+                    <i class="fa-solid fa-chevron-down transition-transform group-open:rotate-180 text-red-400"></i>
+                </summary>
+                <div class="p-6 pt-0 border-t border-red-200 dark:border-red-900/50">
+                    <ul class="list-disc pl-5 mt-4 space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                        <li>I reserve the right to decline any commission if I feel it does not fit my skill set or schedule.</li>
+                        <li><strong>No refunds</strong> will be issued after the project is 50% completed or handed over.</li>
+                        <li>Any Roblox Marketplace Taxes (the 30% fee) must be covered by the client if paying via Gamepass or T-Shirt.</li>
+                        <li>Estimated deadlines are approximations; quality takes time. I will communicate any delays.</li>
+                        <li>You are entitled to two (2) free minor revisions. Major structural changes after approval will cost extra.</li>
+                    </ul>
                 </div>
             </details>
         </div>
 
         <h3 class="text-2xl font-bold mb-8 text-center text-slate-900 dark:text-white">Payment Structures</h3>
-        <p class="text-center text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10">We can negotiate a payment structure that builds trust. <br><span class="text-xs opacity-75">*(Note: You must cover the 30% Roblox Tax if paying via Gamepass/Shirts)*</span></p>
-
         <div class="grid md:grid-cols-3 gap-6">
             <div class="bg-white dark:bg-slate-800 p-8 rounded-xl border border-slate-200 dark:border-slate-700 text-center shadow-sm hover:shadow-md transition">
                 <i class="fa-solid fa-lock text-3xl text-green-500 mb-4"></i>
                 <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">100% Upfront</h4>
-                <p class="text-sm text-slate-600 dark:text-slate-400">The safest route for me. You pay the full amount before development begins, which guarantees your spot at the top of my priority list and ensures rapid delivery.</p>
+                <p class="text-sm text-slate-600 dark:text-slate-400">You pay full amount before development begins, which guarantees your priority spot and rapid delivery.</p>
             </div>
-            
             <div class="bg-white dark:bg-slate-800 p-8 rounded-xl border border-slate-200 dark:border-slate-700 text-center shadow-sm hover:shadow-md transition">
                 <i class="fa-solid fa-scale-balanced text-3xl text-blue-500 mb-4"></i>
                 <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">50 / 50 Split</h4>
-                <p class="text-sm text-slate-600 dark:text-slate-400">The most common route. You pay 50% as a secure deposit. Once the work is finished and previewed, you pay the remaining 50% for the files.</p>
+                <p class="text-sm text-slate-600 dark:text-slate-400">You pay 50% deposit. Once the work is previewed and approved, you pay remaining 50% for the files.</p>
             </div>
-
             <div class="bg-white dark:bg-slate-800 p-8 rounded-xl border border-slate-200 dark:border-slate-700 text-center shadow-sm hover:shadow-md transition">
                 <i class="fa-solid fa-handshake-angle text-3xl text-purple-500 mb-4"></i>
                 <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Pay After</h4>
-                <p class="text-sm text-slate-600 dark:text-slate-400">Reserved for trusted clients and verified studios. I complete the work entirely, show you the final product in a locked showcase, and you pay prior to final handoff.</p>
+                <p class="text-sm text-slate-600 dark:text-slate-400">Reserved for trusted clients. I show you the final product in a locked showcase, and you pay prior to handoff.</p>
             </div>
         </div>
-
     </main>
 
     <main id="contact" class="page-section max-w-4xl mx-auto px-6 py-20 text-center">
         <h2 class="text-4xl font-bold mb-6 text-slate-900 dark:text-white">Let's Work Together</h2>
         
+        <div class="bg-slate-200 dark:bg-slate-800 inline-block px-6 py-3 rounded-full mb-10 border border-slate-300 dark:border-slate-700 shadow-sm">
+            <i class="fa-regular fa-clock text-blue-500 mr-2 animate-pulse"></i> 
+            <span class="text-slate-600 dark:text-slate-300 font-bold">My Local Time (OCE): <span id="local-time" class="text-slate-900 dark:text-white">Loading...</span></span>
+        </div>
+        
         <div class="bg-white dark:bg-slate-800 p-8 md:p-10 rounded-2xl shadow-xl max-w-2xl mx-auto border border-slate-200 dark:border-slate-700 text-left">
-            
             <div data-fs-success style="display: none;" class="bg-green-500 text-white p-4 rounded-lg font-bold text-center mb-6">
                 Message sent successfully! I will get back to you soon.
             </div>
             
             <form id="contact-form" class="space-y-6">
                 <div data-fs-error class="font-bold"></div>
-
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Name / Roblox ID</label>
                         <input type="text" name="name" required data-fs-field class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 text-slate-900 dark:text-white">
-                        <span data-fs-error="name"></span>
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Email or Discord</label>
                         <input type="email" name="email" required data-fs-field class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 text-slate-900 dark:text-white">
-                        <span data-fs-error="email"></span>
                     </div>
                 </div>
-
                 <div>
                     <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Message</label>
                     <textarea name="message" rows="5" required data-fs-field class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 text-slate-900 dark:text-white placeholder-slate-400"></textarea>
-                    <span data-fs-error="message"></span>
                 </div>
-
                 <button type="submit" data-fs-submit-btn class="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-bold py-4 rounded-lg transition text-lg shadow-lg shadow-blue-500/30">
                     Send Message <i class="fa-solid fa-paper-plane ml-2"></i>
                 </button>
@@ -326,16 +381,25 @@
 
     <footer class="text-center py-8 border-t border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900 mt-20 transition-colors">
         <p>&copy; 2026 KIAN | CREATIVE. Changing the foundation of Roblox.</p>
+        <div class="mt-4">
+            <a href="https://www.youtube.com/@Fatalquackers" target="_blank" class="text-2xl hover:text-red-500 transition"><i class="fa-brands fa-youtube"></i></a>
+        </div>
     </footer>
 
     <script>
+        // Page Navigation
         function showPage(pageId) {
             document.querySelectorAll('.page-section').forEach(page => page.classList.remove('active'));
             document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
             document.getElementById('nav-' + pageId).classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Trigger counters if home is clicked
+            if(pageId === 'home') runCounters();
         }
+
+        // Dark Mode Toggle
         function toggleTheme() {
             const html = document.documentElement;
             const icon = document.getElementById('theme-icon');
@@ -347,6 +411,43 @@
                 icon.classList.replace('fa-sun', 'fa-moon');
             }
         }
+
+        // Dynamic Local Time Clock (AEST - Australia/Sydney)
+        function updateClock() {
+            const timeElement = document.getElementById('local-time');
+            if(timeElement) {
+                const now = new Date();
+                timeElement.innerText = now.toLocaleTimeString('en-AU', { timeZone: 'Australia/Sydney', hour: '2-digit', minute: '2-digit', hour12: true });
+            }
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Animated Counting Numbers Logic
+        function runCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200; // Lower is faster
+            
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 15);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                    }
+                };
+                counter.innerText = '0'; // reset
+                updateCount();
+            });
+        }
+        
+        // Run counters on initial load
+        window.onload = runCounters;
     </script>
 </body>
 </html>
